@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ground">#F3F4F8</color>
+    <color name="ic_launcher_background">#0A2A66</color>
+    <!-- The widget can't read the Compose tokens; these copy card, text, text2 and accentText from Theme.kt. -->
+    <color name="widget_card">#FFFFFF</color>
+    <color name="widget_text">#0B1220</color>
+    <color name="widget_text2">#5B6478</color>
+    <color name="widget_soon">#C2410C</color>
+</resources>

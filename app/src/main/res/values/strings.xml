@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SmartSubscription</string>
+    <string name="widget_name">Upcoming renewals</string>
+    <string name="widget_description">What renews in the next 7 days.</string>
+</resources>

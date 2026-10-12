@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Themed-icon layer. Android only reads alpha here, so the iOS tinted grey levels (A6/FF/6E) become alphas. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="1536"
+    android:viewportHeight="1536">
+    <group android:translateX="256" android:translateY="256">
+        <path android:fillColor="#FFFFFF" android:fillAlpha="0.65" android:pathData="M157,322a70,70 0 1,0 140,0a70,70 0 1,0 -140,0" />
+        <path android:fillColor="#FFFFFF" android:fillAlpha="0.65" android:pathData="M347,322a70,70 0 1,0 140,0a70,70 0 1,0 -140,0" />
+        <path android:fillColor="#FFFFFF" android:fillAlpha="0.65" android:pathData="M537,322a70,70 0 1,0 140,0a70,70 0 1,0 -140,0" />
+        <path android:fillColor="#FFFFFF" android:fillAlpha="0.65" android:pathData="M727,322a70,70 0 1,0 140,0a70,70 0 1,0 -140,0" />
+        <path android:fillColor="#FFFFFF" android:fillAlpha="0.65" android:pathData="M157,512a70,70 0 1,0 140,0a70,70 0 1,0 -140,0" />
+        <path android:fillColor="#FFFFFF" android:fillAlpha="0.65" android:pathData="M347,512a70,70 0 1,0 140,0a70,70 0 1,0 -140,0" />
+        <path android:fillColor="#FFFFFF" android:fillAlpha="1" android:pathData="M537,512a70,70 0 1,0 140,0a70,70 0 1,0 -140,0" />
+        <path android:strokeColor="#FFFFFF" android:strokeAlpha="0.43" android:strokeWidth="30" android:pathData="M742,512a55,55 0 1,0 110,0a55,55 0 1,0 -110,0" />
+        <path android:strokeColor="#FFFFFF" android:strokeAlpha="0.43" android:strokeWidth="30" android:pathData="M172,702a55,55 0 1,0 110,0a55,55 0 1,0 -110,0" />
+        <path android:strokeColor="#FFFFFF" android:strokeAlpha="0.43" android:strokeWidth="30" android:pathData="M362,702a55,55 0 1,0 110,0a55,55 0 1,0 -110,0" />
+        <path android:strokeColor="#FFFFFF" android:strokeAlpha="0.43" android:strokeWidth="30" android:pathData="M552,702a55,55 0 1,0 110,0a55,55 0 1,0 -110,0" />
+        <path android:strokeColor="#FFFFFF" android:strokeAlpha="0.43" android:strokeWidth="30" android:pathData="M742,702a55,55 0 1,0 110,0a55,55 0 1,0 -110,0" />
+    </group>
+</vector>

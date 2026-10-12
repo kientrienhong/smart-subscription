@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from the iOS app icon (smart-subscriptions/design/app-icon): six paid, one renews now, five to come. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="1536"
+    android:viewportHeight="1536">
+    <group android:translateX="256" android:translateY="256">
+        <path android:fillColor="#FFFFFF" android:pathData="M157,322a70,70 0 1,0 140,0a70,70 0 1,0 -140,0" />
+        <path android:fillColor="#FFFFFF" android:pathData="M347,322a70,70 0 1,0 140,0a70,70 0 1,0 -140,0" />
+        <path android:fillColor="#FFFFFF" android:pathData="M537,322a70,70 0 1,0 140,0a70,70 0 1,0 -140,0" />
+        <path android:fillColor="#FFFFFF" android:pathData="M727,322a70,70 0 1,0 140,0a70,70 0 1,0 -140,0" />
+        <path android:fillColor="#FFFFFF" android:pathData="M157,512a70,70 0 1,0 140,0a70,70 0 1,0 -140,0" />
+        <path android:fillColor="#FFFFFF" android:pathData="M347,512a70,70 0 1,0 140,0a70,70 0 1,0 -140,0" />
+        <path android:fillColor="#FFB340" android:pathData="M537,512a70,70 0 1,0 140,0a70,70 0 1,0 -140,0" />
+        <path android:strokeColor="#A9BEE8" android:strokeWidth="30" android:pathData="M742,512a55,55 0 1,0 110,0a55,55 0 1,0 -110,0" />
+        <path android:strokeColor="#A9BEE8" android:strokeWidth="30" android:pathData="M172,702a55,55 0 1,0 110,0a55,55 0 1,0 -110,0" />
+        <path android:strokeColor="#A9BEE8" android:strokeWidth="30" android:pathData="M362,702a55,55 0 1,0 110,0a55,55 0 1,0 -110,0" />
+        <path android:strokeColor="#A9BEE8" android:strokeWidth="30" android:pathData="M552,702a55,55 0 1,0 110,0a55,55 0 1,0 -110,0" />
+        <path android:strokeColor="#A9BEE8" android:strokeWidth="30" android:pathData="M742,702a55,55 0 1,0 110,0a55,55 0 1,0 -110,0" />
+    </group>
+</vector>

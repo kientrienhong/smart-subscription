@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_name">Sắp gia hạn</string>
+    <string name="widget_description">Những gói gia hạn trong 7 ngày tới.</string>
+</resources>
