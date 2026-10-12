@@ -1,6 +1,6 @@
 # Product Marketing Context (Android)
 
-*Last updated: 2026-10-09 (Android competitors and ML Kit data collection checked the same day)*
+*Last updated: 2026-10-12 (on-device translation added to scanning). Android competitors and ML Kit data collection checked 2026-10-09.*
 
 > Adapted from the iOS repo's `smart-subscriptions/.agents/product-marketing-context.md` (2026-09-20), which is still the source for anything shared across platforms. Items marked **[Android]** differ from the iOS doc. **[inferred]** means read from the code, not confirmed positioning. **[TBD]** needs your input. **[verify]** is a claim to check before it goes into public copy.
 
@@ -9,7 +9,7 @@
 **What it does:** SmartSubscription (`com.timeskip.smartsubscription`) lets you add recurring subscriptions by hand or by scanning an invoice or receipt. Home lists what renews over the next six weeks, with a "still to come this month" total. Analytics splits paid from expected spend by month, and an Upcoming renewals home screen widget lists what renews in the next 7 days. Paused and cancelled subscriptions move to an Archive that keeps their lifetime cost. **[Android]** There is no account and no bank link.
 **Product category:** Subscription tracker / recurring-bill manager (Play Store shelf: Finance, "subscription manager"). **[inferred]**
 **Product type:** **[Android]** Native Android app (Kotlin, Jetpack Compose), minSdk 26 (Android 8.0), version 0.2.0 (build 5). It ports the iOS app's 2026-09-20 UI refinement.
-**Business model:** **[Android]** A one-time $1.99 unlock, following the design doc (`ui-refinement-2026-09-20.html`): "An app that tracks subscriptions should not sell you one." The proposed split puts scanning, more than 5 subscriptions and 12-month Analytics behind the unlock. Entering by hand, reminders, the Home rail, the Archive and the widget stay free. Google Play Billing is simulated in the app today, and nothing is gated yet. The iOS tip jar has no Android equivalent.
+**Business model:** **[Android]** A one-time $2.99 unlock, following the design doc (`ui-refinement-2026-09-20.html`): "An app that tracks subscriptions should not sell you one." The proposed split puts scanning, more than 5 subscriptions and 12-month Analytics behind the unlock. Entering by hand, reminders, the Home rail, the Archive and the widget stay free. Google Play Billing is simulated in the app today, and nothing is gated yet. The iOS tip jar has no Android equivalent.
 
 **Not shippable yet [Android]:**
 - Subscriptions live in memory and reset when the app restarts.
@@ -26,7 +26,7 @@
 - "Warn me before something renews so I can cancel it or budget for it."
 - "Keep a record of what I paid and when, without giving a third party my bank login."
 **Use cases:**
-- **[Android]** Scanning an invoice photo to add a subscription. ML Kit reads the text on the phone. On phones that have Gemini Nano, the on-device model fills in provider, amount, currency, date and cycle. Other phones fall back to a pattern parser, and you check the result on the review form.
+- **[Android]** Scanning an invoice photo to add a subscription. ML Kit reads the text on the phone. On phones that have Gemini Nano, the on-device model fills in provider, amount, currency, date and cycle. Other phones fall back to a pattern parser, and you check the result on the review form. Invoices in other languages are translated to English on the phone (ML Kit Translation) so the parser can read them. Each language's ~30 MB model downloads on Wi-Fi after the first scan in that language, so the first scan only gets amount, currency and numeric dates from the parser.
 - Confirming a renewal when it happens, so paid history builds up next to expected spend.
 - Pausing or cancelling a service and still seeing what it cost over its lifetime (Archive).
 - **[Android]** Glancing at the home screen widget to see what renews this week.
@@ -68,19 +68,18 @@ Single-persona consumer product, skipped. **[Add one if you target, for example,
 | Subby | Unlimited, with ads | $2.99 once (removes ads) |
 | ReSubs | 5 subscriptions | $10/mo per its site (conflicts with earlier figures) |
 | Rocket Money | Limited, bank-linked | $6–12/mo |
-| **SmartSubscription (proposed)** | 5 subscriptions, manual entry, reminders, widget | **$1.99 once** |
+| **SmartSubscription (proposed)** | 5 subscriptions, manual entry, reminders, widget | **$2.99 once** |
 
-On Android, one-time prices around $3–5 are the norm among manual trackers. $1.99 is still the lowest, but only by a dollar or three; it is no longer the gap it is against ReSubs on iOS.
+On Android, one-time prices around $3–5 are the norm among manual trackers. At $2.99 we match Subby and the low end of Tilla's reported price rather than undercut them. The price gap is only against ReSubs' recurring Premium.
 
 ## Differentiation
 **Key differentiators [Android]:** *(ranked by what the 2026-10-09 competitor check found; confirm)*
-- Invoice scanning that runs on the phone: ML Kit text recognition, plus Gemini Nano where the phone has it. Tilla has no scanning; ReSubs and Subby extract in the cloud or don't say. This is the one feature none of the Android competitors match.
+- Invoice scanning that runs on the phone: ML Kit text recognition, plus Gemini Nano where the phone has it, and on-device translation for invoices that aren't in English. Tilla has no scanning; ReSubs and Subby extract in the cloud or don't say. This is the one feature none of the Android competitors match.
 - Paid vs expected spend: Analytics separates what you actually paid from what's coming. None of the competitor pages describe this.
 - An Archive that keeps the lifetime cost of cancelled and paused services.
 - No account, no bank link, no ads.
-- $1.99 once, the lowest one-time price found, though only $1–3 under Tilla and Subby.
 
-**Not a differentiator on Android:** the home screen widget (Tilla and ReSubs have one) and "no bank link" on its own (every direct competitor above says the same).
+**Not a differentiator on Android:** the home screen widget (Tilla and ReSubs have one), "no bank link" on its own (every direct competitor above says the same), and the $2.99 price (Subby charges the same, Tilla $2.99–4.99).
 
 **Dropped from the iOS list for Android:** the native Mac app, iCloud sync, and a single converted multi-currency total (not ported yet).
 **How we do it differently:** You enter or scan subscriptions instead of linking a bank, so your data stays with you.
@@ -92,7 +91,7 @@ On Android, one-time prices around $3–5 are the norm among manual trackers. $1
 |-----------|----------|
 | "I don't want to enter everything by hand." | Scan the invoice and check what the app filled in. |
 | "Won't a bank-linked app find them automatically?" | Only the ones on that card, and only if you hand over your login. This catches everything and shares nothing. |
-| "Why pay for a tracker when free ones exist?" | $1.99 once, less than one month of most of the subscriptions it tracks. Manual entry, reminders and the widget are free, with no ads. |
+| "Why pay for a tracker when free ones exist?" | $2.99 once, less than one month of most of the subscriptions it tracks. Manual entry, reminders and the widget are free, with no ads. |
 | **[Android]** "Tilla does this already." | Tilla is manual entry only. Here you can scan the invoice, it's read on your phone, and Analytics shows what you actually paid next to what's coming. |
 | **[Android]** "Will scanning work on my phone?" | Text recognition works on any supported phone. The smarter field-filling needs Gemini Nano, which only some recent phones have; elsewhere a simpler parser fills what it can and you correct the rest. Say this plainly in the listing. |
 
@@ -100,7 +99,7 @@ On Android, one-time prices around $3–5 are the norm among manual trackers. $1
 
 ## Switching Dynamics
 **Push:** Surprise renewals; distrust of bank-linking apps. **[inferred]**
-**Pull:** **[Android]** Scan-to-add with the reading done on the phone, paid vs expected spend, no ads, and a $1.99 one-time price.
+**Pull:** **[Android]** Scan-to-add with the reading done on the phone, paid vs expected spend, no ads, and a $2.99 one-time price.
 **Habit:** "I sort of know what I pay," or an existing spreadsheet or notes list.
 **Anxiety:** Manual upkeep; whether an indie app will be maintained. **[Android]** Losing data when switching phones, since there's no sync or backup yet (CSV export exists).
 
@@ -119,7 +118,7 @@ On Android, one-time prices around $3–5 are the norm among manual trackers. $1
 | Paid / expected | Analytics' split between recorded payments and projected charges. |
 | Archive | Where paused and cancelled subscriptions live, with their lifetime cost. |
 | Upcoming renewals widget | **[Android]** Home screen widget listing what renews in the next 7 days. |
-| Unlock | **[Android]** The one-time $1.99 purchase. |
+| Unlock | **[Android]** The one-time $2.99 purchase. |
 | Category | User-managed grouping (Entertainment, Productivity, Cloud Storage…). |
 
 ## Brand Voice
@@ -134,12 +133,12 @@ On Android, one-time prices around $3–5 are the norm among manual trackers. $1
 **Value themes:**
 | Theme | Proof |
 |-------|-------|
-| Privacy | No account, no bank link, no ads; OCR and parsing run on the phone (ML Kit, Gemini Nano). **[Android, checked 2026-10-09]** The `INTERNET` permission comes from the ML Kit dependencies. Google's [ML Kit Android data disclosure](https://developers.google.com/ml-kit/android-data-disclosure) says every ML Kit feature collects device and app info, per-installation identifiers, performance metrics, API configuration, input/output sizes and error codes "for diagnostics and usage analytics", sent over HTTPS and not shared with third parties. The GenAI features (`genai-prompt`) also collect "user, device or other identifiers". The page names no opt-out and doesn't say whether image or prompt content is sent. So the honest claim is that invoices are read on the phone, not that nothing leaves it, and the Play Data safety form has to declare this diagnostics collection. |
+| Privacy | No account, no bank link, no ads; OCR and parsing run on the phone (ML Kit, Gemini Nano). **[Android, checked 2026-10-09]** The `INTERNET` permission comes from the ML Kit dependencies. Google's [ML Kit Android data disclosure](https://developers.google.com/ml-kit/android-data-disclosure) says every ML Kit feature collects device and app info, per-installation identifiers, performance metrics, API configuration, input/output sizes and error codes "for diagnostics and usage analytics", sent over HTTPS and not shared with third parties. The GenAI features (`genai-prompt`) also collect "user, device or other identifiers". **[2026-10-12]** Language ID and Translation (`language-id`, `translate`) are ML Kit features too, so the same diagnostics collection covers them, and translation models download from Google's servers. Translation itself runs on the phone. **[verify against the disclosure page before updating the Data safety form]** The page names no opt-out and doesn't say whether image or prompt content is sent. So the honest claim is that invoices are read on the phone, not that nothing leaves it, and the Play Data safety form has to declare this diagnostics collection. |
 | Speed of entry | Photo or camera scan leads to a pre-filled review form. |
 | Truthful numbers | Paid vs expected in Analytics; the Archive keeps lifetime cost of cancelled services. |
-| Fair price | One $1.99 payment, no ads. On Android it is the lowest one-time price found, $1–3 under Tilla and Subby; the bigger gap is against ReSubs' recurring Premium. |
+| Fair price | One $2.99 payment, no ads. That is the same as Subby and the low end of Tilla on Android; the real gap is against ReSubs' recurring Premium. |
 
 ## Goals
 **Business goal:** **[TBD: e.g. Play Store ranking for "subscription tracker", unlock revenue]**
-**Conversion action:** Install the app and add the first subscription, ideally by scan; then the $1.99 unlock. **[inferred]**
+**Conversion action:** Install the app and add the first subscription, ideally by scan; then the $2.99 unlock. **[inferred]**
 **Current metrics:** **[TBD: not yet on the Play Store]**

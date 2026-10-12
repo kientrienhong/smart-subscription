@@ -4,7 +4,7 @@ package com.timeskip.smartsubscription.i18n
 interface UnlockText {
     val unlocked: String
     val unlock: String
-    /** "Paid $1.99 once, on Oct 11, 2026. Nothing renews.", around the bold price. */
+    /** "Paid $2.99 once, on Oct 11, 2026. Nothing renews.", around the bold price. */
     val paidPrefix: String
     fun paidSuffix(date: String): String
     val wholeApp: String

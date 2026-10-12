@@ -31,7 +31,7 @@ import java.time.LocalDate
 import java.time.LocalTime
 import java.util.UUID
 
-const val UNLOCK_PRICE = 1.99
+const val UNLOCK_PRICE = 2.99
 
 data class ArchiveUndo(val message: String, val before: Subscription)
 

@@ -27,7 +27,7 @@ home screen widget lists what renews in the next 7 days.
 
 - Persistence: state lives in memory and resets on restart.
 - Invoice scanning plays a sample invoice; no OCR yet.
-- The $1.99 unlock simulates Google Play Billing.
+- The $2.99 unlock simulates Google Play Billing.
 - Reminders are stored settings; nothing is scheduled.
 - Currency conversion: totals count only the default currency.
 - iCloud sync has no Android version and is left out.
